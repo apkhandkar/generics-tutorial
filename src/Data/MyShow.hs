@@ -23,8 +23,8 @@ instance (GMyShow a, GMyShow b) => GMyShow (a :+: b) where
 instance (GMyShow a, GMyShow b) => GMyShow (a :*: b) where
   gMyShow (a :*: b) = gMyShow a <> " " <> gMyShow b
 
-instance (KnownSymbol n, GMyShow a) => GMyShow (M n a) where
-  gMyShow a = symbolVal (Proxy @n) <> " " <> gMyShow (unM a)
+instance (KnownSymbol n, GMyShow a) => GMyShow (C n a) where
+  gMyShow a = symbolVal (Proxy @n) <> " " <> gMyShow (unC a)
 
 instance MyShow a => GMyShow (V a) where
   gMyShow a = myShow (unV a)

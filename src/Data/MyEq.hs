@@ -22,8 +22,8 @@ instance (GMyEq a, GMyEq b) => GMyEq (a :+: b) where
 instance (GMyEq a, GMyEq b) => GMyEq (a :*: b) where
   gMyEq (a1 :*: b1) (a2 :*: b2) = gMyEq a1 a2 && gMyEq b1 b2
 
-instance GMyEq a => GMyEq (M n a) where
-  gMyEq a b = gMyEq (unM a) (unM b)
+instance GMyEq a => GMyEq (C n a) where
+  gMyEq a b = gMyEq (unC a) (unC b)
 
 instance MyEq a => GMyEq (V a) where
   gMyEq a b = myEq (unV a) (unV b)

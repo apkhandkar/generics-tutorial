@@ -11,17 +11,17 @@ data Signal = Red | Amber | Green
 
 instance Generic Signal where
 
-  type Rep Signal = (M "Red" U) :+: (M "Amber" U) :+: (M "Green" U)
+  type Rep Signal = (C "Red" U) :+: (C "Amber" U) :+: (C "Green" U)
 
   from :: Signal -> Rep Signal
-  from Red = L (M U)
-  from Amber = R (L (M U))
-  from Green = R (R (M U))
+  from Red = L (C U)
+  from Amber = R (L (C U))
+  from Green = R (R (C U))
 
   to :: Rep Signal -> Signal
-  to (L (M U)) = Red
-  to (R (L (M U))) = Amber
-  to (R (R (M U))) = Green
+  to (L (C U)) = Red
+  to (R (L (C U))) = Amber
+  to (R (R (C U))) = Green
 
 instance MyEq Signal
 
@@ -32,15 +32,15 @@ data Tree a = Leaf a | Node (Tree a) (Tree a)
 
 instance Generic (Tree a) where
 
-  type Rep (Tree a) = (M "Leaf" (V a)) :+: (M "Node" ((Rec (Tree a)) :*: (Rec (Tree a))))
+  type Rep (Tree a) = (C "Leaf" (V a)) :+: (C "Node" ((Rec (Tree a)) :*: (Rec (Tree a))))
 
   from :: Tree a -> Rep (Tree a)
-  from (Leaf a) = L (M (V a))
-  from (Node l r) = R (M ((Rec l) :*: (Rec r)))
+  from (Leaf a) = L (C (V a))
+  from (Node l r) = R (C ((Rec l) :*: (Rec r)))
 
   to :: Rep (Tree a) -> Tree a
-  to (L (M (V a))) = Leaf a
-  to (R (M ((Rec l) :*: (Rec r)))) = Node l r
+  to (L (C (V a))) = Leaf a
+  to (R (C ((Rec l) :*: (Rec r)))) = Node l r
 
 instance MyEq a => MyEq (Tree a)
 

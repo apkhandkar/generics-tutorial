@@ -44,5 +44,5 @@ data U = U
   deriving Show
 
 -- | Constructor metadata
-data M (n :: Symbol) a = M { unM :: a }
+data C (n :: Symbol) a = C { unC :: a }
   deriving Show
