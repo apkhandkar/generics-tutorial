@@ -2,6 +2,7 @@
 module Data.Generics where
 
 import Data.Kind
+import GHC.TypeLits
 
 -- | Types that can be represented.
 class Generic a where
@@ -40,4 +41,8 @@ newtype Rec a = Rec { unRec :: a }
 
 -- | Constructors that take no arguments
 data U = U 
+  deriving Show
+
+-- | Constructor metadata
+data M (n :: Symbol) a = M { unM :: a }
   deriving Show
