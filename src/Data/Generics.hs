@@ -46,3 +46,7 @@ data U = U
 -- | Constructor metadata
 data C (n :: Symbol) a = C { unC :: a }
   deriving Show
+
+-- | Type metadata
+data M (n :: Symbol) (m :: Symbol) (p :: Symbol) (nt :: Bool) (a :: Type) = M { unM :: a }
+  deriving Show

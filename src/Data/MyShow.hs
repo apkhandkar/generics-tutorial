@@ -34,3 +34,6 @@ instance MyShow a => GMyShow (Rec a) where
 
 instance GMyShow U where
   gMyShow U = ""
+
+instance GMyShow a => GMyShow (M n m p nt a) where
+  gMyShow a = gMyShow (unM a)

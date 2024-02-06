@@ -33,3 +33,6 @@ instance MyEq a => GMyEq (Rec a) where
 
 instance GMyEq U where
   gMyEq U U = True
+
+instance GMyEq a => GMyEq (M n m p nt a) where
+  gMyEq a b = gMyEq (unM a) (unM b)
