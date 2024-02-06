@@ -1,5 +1,3 @@
-{-# LANGUAGE DefaultSignatures #-}
-{-# LANGUAGE DataKinds #-}
 module Data.TypeInfo where
 
 import Data.Generics
