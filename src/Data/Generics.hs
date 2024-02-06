@@ -1,4 +1,3 @@
-{-# LANGUAGE TypeFamilies #-}
 module Data.Generics where
 
 import Data.Kind

@@ -1,4 +1,3 @@
-{-# LANGUAGE DefaultSignatures #-}
 module Data.MyEq where
 
 import Data.Generics
