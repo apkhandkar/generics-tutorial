@@ -1,4 +1,3 @@
-{-# LANGUAGE DefaultSignatures #-}
 module Data.MyShow where
 
 import Data.Generics
