@@ -32,6 +32,7 @@ default-extensions:
   - InstanceSigs
   - DataKinds
   - TypeFamilies
+  - RecordWildCards
 
 library:
   source-dirs: src

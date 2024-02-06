@@ -34,7 +34,10 @@ instance GHasTypeInfo (a :+: b) where
 instance GHasTypeInfo (a :*: b) where
   gGetTypeInfo _ = error "not defined"
 
-instance GHasTypeInfo (C n a) where
+instance GHasTypeInfo (C n f a) where
+  gGetTypeInfo _ = error "not defined"
+
+instance GHasTypeInfo (S n a) where
   gGetTypeInfo _ = error "not defined"
 
 instance GHasTypeInfo (V a) where
@@ -45,3 +48,9 @@ instance GHasTypeInfo (Rec a) where
 
 instance GHasTypeInfo U where
   gGetTypeInfo _ = error "not defined"
+
+-- ** Auto-derive instances for common types
+
+instance HasTypeInfo Bool
+
+instance HasTypeInfo a => HasTypeInfo [a]
